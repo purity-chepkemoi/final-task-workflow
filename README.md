@@ -26,4 +26,3 @@ Execution Order
 job1-build → job2-test → job3-deploy
 
 Each job checks out the repository before running.
-Commit
