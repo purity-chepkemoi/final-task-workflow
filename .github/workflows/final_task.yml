@@ -1,0 +1,43 @@
+name: final task
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - feature1
+
+jobs:
+  job1-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build step
+        run: echo "building in progress.........."
+
+  job2-test:
+    runs-on: ubuntu-latest
+    needs: job1-build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Test step
+        run: echo "testing for errors"
+
+  job3-deploy:
+    runs-on: ubuntu-latest
+    needs: job2-test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print Message
+        run: echo "finally deployed....."
