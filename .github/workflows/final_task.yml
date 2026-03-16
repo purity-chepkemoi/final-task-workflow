@@ -10,7 +10,7 @@ on:
       - feature1
 
 jobs:
-  build:
+  job1-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,7 @@ jobs:
       - name: Build step
         run: echo "building in progress.........."
 
-  test:
+  job2-test:
     runs-on: ubuntu-latest
     needs: job1-build
 
@@ -31,7 +31,7 @@ jobs:
       - name: Test step
         run: echo "testing for errors"
 
-  deploy:
+  job3-deploy:
     runs-on: ubuntu-latest
     needs: job2-test
 
